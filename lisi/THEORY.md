@@ -38,7 +38,21 @@ E6, E6 roots = 24 + 3·16, and each 27 = 8v + 8s + 8c + 1 + 1 + 1.
 (U(1) charges 4 : 1 : −2). The 40 SO(10) roots are the E6 roots orthogonal to w0. Colour, weak isospin,
 hypercharge Y and charge Q are read off root inner products. **[checked]** the 16 reproduces
 Q_L, u^c, d^c, L, e^c, ν^c; and Σ Y = Σ Y³ = Σ Q = Σ Q³ = 0 over the 16 (the anomaly-type sums), with the
-exact multiset of (colour, su(2), Y) values asserted.
+exact multiset of (colour, su(2), Y) values asserted. **[checked]** the mixed sums SU(2)² Y and SU(3)² Y over the
+16 also vanish; the 10 is vector-like (its Y sums cancel termwise); the electric charges Q = T3 + Y of the 16
+are 0, ±1/3, ±2/3, ±1; and Y takes the SU(5) pattern on the 40 SO(10) roots (8 at 0, 12 at ±5/6, 12 at ±1/6,
+6 at ±2/3, 2 at ±1), the standard hypercharge and not a flipped one.
+
+*Provenance.* `sm_charges.py` was missing from the repository and was rewritten from this section and from
+`report/sm_charges.tex`, which the original generated. The vectors w0, a, b, g and Y are the ones printed in that
+report: w0 = (−2/3, −2/3, −2/3, 0, 0, 0, 0, 0), the SU(3)_c roots a = (0,0,0,1,1,0,0,0) and
+b = (0,0,0,−1,0,1,0,0), the SU(2)_L root g = (0,0,0,0,0,0,1,1) and Y = (0,0,0,1/3,−1/3,1/3,1/2,−1/2). They are
+*chosen*, not derived: the rewrite asserts that they are SO(10) roots forming A2 × A1 with Y orthogonal to all of
+them and to w0 and the horizontal SU(3)_M, and reads every weight off by inner products. Two things support the
+rewrite: `make_report.py` regenerates `report/sm_charges.tex` byte for byte from it, and the five scripts that import
+it (`match_e8_spin113.py` and, through it, `match_e8_d7.py`, `check_triality_su4.py`, `check_distler_garibaldi.py`
+and `check_lisi_theta.py`) all pass against it. Neither shows that it is the original file, and no claim is made here that the choice
+of (a, b, g, Y) is the only one that gives the Standard Model content.
 
 ## 3. Spin(11,3) and the Majorana–Weyl 64
 

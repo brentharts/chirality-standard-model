@@ -12,13 +12,17 @@ rounded to exact rationals and asserted.
 python3 lisi/run_all.py
 ```
 
+`run_all.py` runs all fourteen scripts below in a fresh process each and takes a few minutes
+(the longest are the sympy and root-search scripts); `python3 lisi/sm_charges.py` alone takes
+a second.
+
 | Script | What it checks |
 | :--- | :--- |
 | `e8.py` | Exact 240-root E8 system (doubled integer coordinates), closure, E7 = 126 orthogonal roots |
 | `check_e6_su3_bridge.py` | E8 ⊃ E6 × SU(3): 240 = 72 + 6 + 6·27; the 27 repeats over the 3; 27bar = −27; 45 zero-sum triples (the E6 cubic invariant) |
 | `check_triality_d4d4.py` | E8 ⊃ D4 × D4: 240 = 24 + 24 + 3·64; an order-3 automorphism cycles (8v,8v) → (8s,8s) → (8c,8c) |
 | `check_common_refinement.py` | A2 ⊂ first D4, so E6 ⊃ second D4: E6 roots = 24 + 3·16; each 27 = 8v + 8s + 8c + 3 singlets |
-| `sm_charges.py` | sympy: 27 = 1 + 16 + 10 under SO(10) × U(1); SM content of the 16 and 10; hypercharge from roots; exact Σ Y = Σ Y³ = Σ Q = Σ Q³ = 0 |
+| `sm_charges.py` | sympy: 27 = 1 + 16 + 10 under SO(10) × U(1); SM content of the 16 and 10; hypercharge from roots; exact Σ Y = Σ Y³ = Σ Q = Σ Q³ = 0 and the mixed SU(2)² Y, SU(3)² Y sums; the SU(5) pattern of Y on the 40 SO(10) roots. Its `build()` is what `match_e8_spin113.py`, `make_report.py` and four further scripts import (see *Provenance* in `THEORY.md` §2) |
 | `check_dirac_weyl.py` | sympy: Section 2 of Lisi 2010 — Pauli identity, su(2) bracket, Weyl-representation gammas, P_L / P_R, spin(1,3) = sl(2,C), one-generation hypercharge |
 | `spin113.py` | numpy: real Cl(11,3) with 14 gammas of size 128, spin(11,3) = 91 = 6 + 45 + 40, Majorana-Weyl 64, Pati-Salam (21) and Standard Model (12) generators; the left-handed subspace W (γ5 = −1) carries exactly one signed left-handed Standard Model generation, which correlates su(2)_L with the orientation of the colour complex structure |
 | `match_e8_spin113.py` | sympy + numpy: exact isometry from the Clifford Cartan weights of W onto the E8 weights of the 16 ⊂ 27, carrying SU(3), SU(2)_L and Y across; the 12 solutions are exactly S3 × Z2 (Weyl symmetries) |
@@ -164,4 +168,6 @@ Whether a physical generation structure can use the triality 3 as well is not de
    Still open: the real form (does the Lorentz signature select su(2)_a?), and whether the
    triality 3 plays any physical role for generations once the family 3 is present.
 3. (done) Standard Model quantum numbers of the 27 under SO(10) × U(1)
-   (`sm_charges.py`, `report/sm_charges.pdf`).
+   (`sm_charges.py`, `report/sm_charges.pdf`). `sm_charges.py` was rewritten after it was found
+   missing from the repository (six of the fourteen checks import it); `make_report.py`
+   regenerates `report/sm_charges.tex` identically from the rewrite.
